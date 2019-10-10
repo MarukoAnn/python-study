@@ -1,0 +1,5 @@
+# print("hello python")
+print(9/2)
+print(2**3)
+print(9//4)
+print("--||--" * 10)
