@@ -8,7 +8,7 @@ del name_list[1]
 
 name = "小明"
 
-del name
+# del name
 
 # 注意：如果使用 del 关键字将变量从内存中删除
 # 后续的代码就不能在使用这个变量了
