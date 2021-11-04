@@ -6,12 +6,12 @@ gl_title = "黑马程序员"
 # 在定义一个全局变量
 gl_name = "小明"
 
+
 def demo():
 
     print("%d" % gl_num)
     print("%s" % gl_title)
     print("%s" % gl_name)
-
 
 
 demo()
