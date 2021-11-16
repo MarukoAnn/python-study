@@ -1179,3 +1179,87 @@ finally:
     2、使用raise 关键字抛出异常对象
 
 > Python 中每一个模块都有一个内置属性 __file__ 可以查看模块的完整路径
+
+##### 包(package)
+概念
+- 包是以恶搞包含多个模块得特殊目录
+- 目录下有一个特殊得文件 __init_.py
+- 包名得命名方式 和变量名一致, 小写得字母+_
+**好处**
+- 使用 import 包名 可以一次性导入 包中所有得模块
+
+__init_.py
+- 要在外界使用包中的模块，需要在__init__.py中指定对外界提供的模块列表
+```
+# 从当前目录导入 模块列表
+from . import send_message
+from . import receive_message
+```
+
+###### 制作发布压缩包步骤
+1)、创建 setup.py的文件
+```
+ from distutils.core import setup
+
+setup(name="hm_message",# 包名
+      version="1.0",# 版本
+      description="itheima's 发送和接收消息模块",# 描述信息
+      long_description="完整的发送和接收消息模块",# 完整描述信息
+      author="itheima",# 作者
+      author_email="itheima@itheima.com", # 作者邮箱
+      url="www.itheima.com", # 主页
+      py_modules=["hm_message.send_message",
+                  "hm_message.receive_message"])
+```
+
+有关字典参数详细信息，可以参阅官方网站
+https://docs.python.org/2/distutils/apiref.html
+
+2)、构建模块
+```
+python setup.py build
+```
+
+3)、生成发布压缩包
+```
+python setup.py sdist
+```
+> 注意: 要制作那个版本的模块，就使用那个版本的解释器执行！
+
+####### 安装模块
+```
+$ tar -zxvf hm_message-1.0.tar.gz
+$ sudo python setup.py install
+```
+卸载模块
+直接从安装目录下，把安装模块的目录删除即可
+```
+$ sudo rm -r hm_message
+```
+
+##### pip 安装第三方模块
+- 第三方模块 通常 是指 由知名的第三方团队 开发的 并且被程序员广泛使用的Python 包/ 模块
+    - 例如 pygame 就是一套非常成熟的游戏开发模块
+- pip 是一个现代的，通用的 Python 包管理工具
+- 提供了对Python 包的查找、下载、安装、卸载等功能
+
+```
+# 将模块安装到Python2.x 环境
+$ sudo pip install pygame
+$ sudo pip uninstall pygame
+
+#将模块安装到Python3.x 环境
+$ sudo pip install pygame
+$ sudo pip uninstall pygame
+```
+在Mac 下安装iPython
+```
+sudo pip install ipython
+```
+在Linux 下安装ipython
+
+```
+$ sudo apt install ipython
+$ sudo apt uninstall ipython
+```
+
